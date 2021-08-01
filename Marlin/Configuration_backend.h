@@ -565,8 +565,10 @@
 #endif
 
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 200
-#define PREHEAT_1_TEMP_BED     60
+// XXX
+#define PREHEAT_1_TEMP_HOTEND 190
+// XXX
+#define PREHEAT_1_TEMP_BED     50
 #define PREHEAT_1_FAN_SPEED     0
 
 #define PREHEAT_2_LABEL       "ABS"
