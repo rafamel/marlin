@@ -92,7 +92,8 @@
   #define MACHINE_UUID DEFAULT_MACHINE_UUID
 #endif
 
-#define MARLIN_WEBSITE_URL "th3dstudio.com"
+// XXX: remove TH3D website from bootscreen
+#define MARLIN_WEBSITE_URL ""
 
 //#if !defined(STRING_SPLASH_LINE3) && defined(WEBSITE_URL)
 //  #define STRING_SPLASH_LINE3 WEBSITE_URL
