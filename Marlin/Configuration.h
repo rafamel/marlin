@@ -443,8 +443,10 @@
   #endif
 
   #if ENABLED(ENDER5)
-    #define USE_XMAX_PLUG
-    #define USE_YMAX_PLUG
+    // XXX: set home as 0,0
+    #define USE_XMIN_PLUG
+    // XXX: set home as 0,0
+    #define USE_YMIN_PLUG
     #define USE_ZMIN_PLUG
   #else
     #define USE_XMIN_PLUG
@@ -453,15 +455,17 @@
   #endif
 
   #if ENABLED(ENDER5)
-    #define X_HOME_DIR 1
-    #define Y_HOME_DIR 1
+    // XXX: set home as 0,0
+    #define X_HOME_DIR -1
+    // XXX: set home as 0,0
+    #define Y_HOME_DIR -1
     #define Z_HOME_DIR -1
   #else
     #define X_HOME_DIR -1
     #define Y_HOME_DIR -1
     #define Z_HOME_DIR -1
   #endif
-  
+
   #if NONE(V6_HOTEND, TH3D_HOTEND_THERMISTOR, KNOWN_HOTEND_THERMISTOR)
     #define TEMP_SENSOR_0 1
   #else
@@ -524,9 +528,11 @@
   #define Z_ENABLE_ON 0
   #define E_ENABLE_ON 0
 
-  #define INVERT_X_DIR true
-  #define INVERT_Y_DIR true
-  
+  // XXX: set home as 0,0
+  #define INVERT_X_DIR false
+  // XXX: set home as 0,0
+  #define INVERT_Y_DIR false
+
   #if ENABLED(ENDER5)
     #define INVERT_Z_DIR true
   #else
