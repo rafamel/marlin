@@ -24,7 +24,8 @@
 //#define CR10_S5
 //#define ENDER2
 //#define ENDER3
-//#define ENDER5
+// XXX
+#define ENDER5
 
 // If you are using our EZOut V1/V2 (connects to LCD header) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUT_ENABLE line below.
@@ -55,7 +56,8 @@
 
 // Ender 5 - Leadscrew Setting
 // If you have the new Ender 5/5 Pro Model that has the new 800steps/mm Z leadscrew uncomment the below option to set the correct steps/mm
-//#define ENDER5_NEW_LEADSCREW
+// XXX: T84, 800 Z-steps
+#define ENDER5_NEW_LEADSCREW
 
 //===========================================================================
 // *************************  END PRINTER SECTION   *************************
@@ -66,13 +68,15 @@
 //===========================================================================
 
 // Probing Grid Points - If you want more or less EZABL probe points change the number below, use odd numbers. Total points is # times #.
-#define EZABL_POINTS 3
+// XXX
+#define EZABL_POINTS 9
 
 // Probe Edge - How far from the edge of the bed to probe from. Use 50 if using binder clips. This also sets the edge inset value for MANUAL_MESH_LEVELING.
-#define EZABL_PROBE_EDGE 35
+// XXX
+#define EZABL_PROBE_EDGE 45
 
 // Fast Probing - Works with most machines and all EZABL sensors (8mm/s)
-#define EZABL_FASTPROBE
+// #define EZABL_FASTPROBE
 
 // Superfast Probing - Only works with the EZABL Pro Sensors (15mm/s)
 //#define EZABL_SUPERFASTPROBE
@@ -141,8 +145,10 @@
 // If you need to reverse the e motor direction also enabled the REVERSE_E_MOTOR_DIRECTION option.
 // Example EStep Values: TH3D Aluminum Extruder - 95 ESteps, TH3D Tough Extruder - 410 ESteps, BMG Extruder - 415 ESteps
 // When installing a Tough Extruder or E3D Titan or Bondtech that is Geared you likely need to enable the REVERSE_E_MOTOR_DIRECTION option
-//#define CUSTOM_ESTEPS
-#define CUSTOM_ESTEPS_VALUE 410
+// XXX
+#define CUSTOM_ESTEPS
+// XXX: Creality's Dual Gear Extruder
+#define CUSTOM_ESTEPS_VALUE 102.5
 //#define REVERSE_E_MOTOR_DIRECTION
 
 // FILAMENT SENSOR UNLOAD SETTINGS -----------------
@@ -167,7 +173,8 @@
 // If you have a hotend and thermistor capable of over 290C you can set the max temp value below.
 // Setting this higher than 290C on a stock or traditional thermistor will damage it. Refer to your thermistor documentation to see what max temp is.
 //#define HIGH_TEMP_THERMISTOR
-#define HIGH_TEMP_THERMISTOR_TEMP 350
+// XXX
+#define HIGH_TEMP_THERMISTOR_TEMP 260
 
 // BED THERMISTOR SETTINGS -------------------------
 
@@ -195,11 +202,14 @@
 //#define FAN_FIX
 
 // Use your own printer name - Uncomment both lines
-//#define CUSTOM_PRINTER_NAME
-//#define USER_PRINTER_NAME "CHANGE ME"
+// XXX
+#define CUSTOM_PRINTER_NAME
+// XXX
+#define USER_PRINTER_NAME "Ender 5 Pro"
 
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
-//#define SLOWER_HOMING
+// XXX
+#define SLOWER_HOMING
 
 //===========================================================================
 //****************** COMMUNITY REQUESTED FEATURES ***************************
@@ -225,7 +235,8 @@
 
 // FINE BABYSTEPPING -------------------------------
 // Enabling the below line will set the babystep resolution from 0.025mm to 0.010mm for finer control.
-//#define FINE_BABYSTEPPING
+// XXX
+#define FINE_BABYSTEPPING
 
 // LINEAR ADVANCE ----------------------------------
 // See here on how to use Linear Advance: http://marlinfw.org/docs/features/lin_advance.html
@@ -245,7 +256,8 @@
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe. To change the mesh inset value change the EZABL_PROBE_EDGE setting above.
 // Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html 
 // NOTE: If you want to automate the leveling process our EZABL kits do this for you. Check them out here: http://EZABL.TH3DStudio.com
-//#define MANUAL_MESH_LEVELING
+// XXX
+#define MANUAL_MESH_LEVELING
 
 // POWER LOSS RECOVERY -----------------------------
 // Continue after Power-Loss feature will store the current state to the SD Card at the start of each layer
