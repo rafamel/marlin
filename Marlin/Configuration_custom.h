@@ -5,6 +5,9 @@
 //=================
 #undef SHOW_BOOTSCREEN
 #undef SHOW_CUSTOM_BOOTSCREEN
+#undef X_BED_SIZE
+#undef Y_BED_SIZE
+#undef Z_MAX_POS
 #undef PREHEAT_1_LABEL
 #undef PREHEAT_1_TEMP_HOTEND
 #undef PREHEAT_1_TEMP_BED
@@ -13,6 +16,9 @@
 #undef PREHEAT_2_TEMP_HOTEND
 #undef PREHEAT_2_TEMP_BED
 #undef PREHEAT_2_FAN_SPEED
+#undef MIN_SOFTWARE_ENDSTOP_X
+#undef MIN_SOFTWARE_ENDSTOP_Y
+#undef MIN_SOFTWARE_ENDSTOP_Z
 #undef USE_XMIN_PLUG
 #undef USE_YMIN_PLUG
 #undef USE_ZMIN_PLUG
@@ -30,6 +36,15 @@
 // #define SHOW_CUSTOM_BOOTSCREEN
 
 //=================
+// Bed Size
+//=================
+// Flip the 0,0 point: won't be coincident with home.
+#define FLIP_ORIGIN
+#define X_BED_SIZE 220
+#define Y_BED_SIZE 220
+#define Z_MAX_POS 240
+
+//=================
 // Preheat
 //=================
 // Preheat PLA
@@ -42,6 +57,16 @@
 #define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED    100
 #define PREHEAT_2_FAN_SPEED     0
+
+//=================
+// Safety
+//=================
+// Prevent X negative values.
+#define MIN_SOFTWARE_ENDSTOP_X
+// Prevent Y negative values.
+#define MIN_SOFTWARE_ENDSTOP_Y
+// Prevent Z negative values.
+#define MIN_SOFTWARE_ENDSTOP_Z
 
 //=================
 // END SETTINGS
