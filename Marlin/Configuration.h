@@ -451,7 +451,7 @@
     #define Y_HOME_DIR -1
     #define Z_HOME_DIR -1
   #endif
-
+  
   #if NONE(V6_HOTEND, TH3D_HOTEND_THERMISTOR, KNOWN_HOTEND_THERMISTOR)
     #define TEMP_SENSOR_0 1
   #else
@@ -506,8 +506,6 @@
   #define Y_DRIVER_TYPE A4988
   #define Z_DRIVER_TYPE A4988
   #define E0_DRIVER_TYPE A4988
-  
-  #define ENDSTOP_INTERRUPTS_FEATURE
 
   #define X_ENABLE_ON 0
   #define Y_ENABLE_ON 0
