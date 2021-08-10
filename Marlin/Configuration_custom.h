@@ -45,6 +45,25 @@
 #define Z_MAX_POS 240
 
 //=================
+// Filament Runout
+//=================
+#define FILAMENT_RUNOUT_SENSOR
+// Set filament runout pin.
+#define FIL_RUNOUT_PIN 29
+// Enable the sensor on startup.
+#define FIL_RUNOUT_ENABLED_DEFAULT true
+// Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
+#define NUM_RUNOUT_SENSORS 1
+// Pin state indicating that filament is NOT present.
+#define FIL_RUNOUT_STATE HIGH
+// Use internal pullup for filament runout pins.
+#define FIL_RUNOUT_PULLUP
+// Set one or more commands to execute on filament runout.
+#define FILAMENT_RUNOUT_SCRIPT "M600 U35"
+// After a runout, print length before executing the runout script.
+#define FILAMENT_RUNOUT_DISTANCE_MM 40
+
+//=================
 // Preheat
 //=================
 // Preheat PLA
