@@ -168,7 +168,7 @@
 
 // If you have a hotend and thermistor capable of over 290C you can set the max temp value below.
 // Setting this higher than 290C on a stock or traditional thermistor will damage it. Refer to your thermistor documentation to see what max temp is.
-//#define HIGH_TEMP_THERMISTOR
+#define HIGH_TEMP_THERMISTOR
 #define HIGH_TEMP_THERMISTOR_TEMP 260
 
 // BED THERMISTOR SETTINGS -------------------------
