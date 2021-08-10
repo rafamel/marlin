@@ -24,7 +24,6 @@
 //#define CR10_S5
 //#define ENDER2
 //#define ENDER3
-// XXX
 #define ENDER5
 
 // If you are using our EZOut V1/V2 (connects to LCD header) filament sensor kit please follow the install guide
@@ -56,7 +55,7 @@
 
 // Ender 5 - Leadscrew Setting
 // If you have the new Ender 5/5 Pro Model that has the new 800steps/mm Z leadscrew uncomment the below option to set the correct steps/mm
-// XXX: T84, 800 Z-steps
+// T84, 800 Z-steps
 #define ENDER5_NEW_LEADSCREW
 
 //===========================================================================
@@ -68,11 +67,9 @@
 //===========================================================================
 
 // Probing Grid Points - If you want more or less EZABL probe points change the number below, use odd numbers. Total points is # times #.
-// XXX
 #define EZABL_POINTS 9
 
 // Probe Edge - How far from the edge of the bed to probe from. Use 50 if using binder clips. This also sets the edge inset value for MANUAL_MESH_LEVELING.
-// XXX
 #define EZABL_PROBE_EDGE 45
 
 // Fast Probing - Works with most machines and all EZABL sensors (8mm/s)
@@ -145,9 +142,8 @@
 // If you need to reverse the e motor direction also enabled the REVERSE_E_MOTOR_DIRECTION option.
 // Example EStep Values: TH3D Aluminum Extruder - 95 ESteps, TH3D Tough Extruder - 410 ESteps, BMG Extruder - 415 ESteps
 // When installing a Tough Extruder or E3D Titan or Bondtech that is Geared you likely need to enable the REVERSE_E_MOTOR_DIRECTION option
-// XXX
 #define CUSTOM_ESTEPS
-// XXX: Creality's Dual Gear Extruder
+// Creality's Dual Gear Extruder
 #define CUSTOM_ESTEPS_VALUE 102.5
 //#define REVERSE_E_MOTOR_DIRECTION
 
@@ -173,7 +169,6 @@
 // If you have a hotend and thermistor capable of over 290C you can set the max temp value below.
 // Setting this higher than 290C on a stock or traditional thermistor will damage it. Refer to your thermistor documentation to see what max temp is.
 //#define HIGH_TEMP_THERMISTOR
-// XXX
 #define HIGH_TEMP_THERMISTOR_TEMP 260
 
 // BED THERMISTOR SETTINGS -------------------------
@@ -202,13 +197,10 @@
 //#define FAN_FIX
 
 // Use your own printer name - Uncomment both lines
-// XXX
 #define CUSTOM_PRINTER_NAME
-// XXX
 #define USER_PRINTER_NAME "Ender 5 Pro"
 
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
-// XXX
 #define SLOWER_HOMING
 
 //===========================================================================
@@ -235,7 +227,6 @@
 
 // FINE BABYSTEPPING -------------------------------
 // Enabling the below line will set the babystep resolution from 0.025mm to 0.010mm for finer control.
-// XXX
 #define FINE_BABYSTEPPING
 
 // LINEAR ADVANCE ----------------------------------
@@ -256,7 +247,6 @@
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe. To change the mesh inset value change the EZABL_PROBE_EDGE setting above.
 // Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html 
 // NOTE: If you want to automate the leveling process our EZABL kits do this for you. Check them out here: http://EZABL.TH3DStudio.com
-// XXX
 #define MANUAL_MESH_LEVELING
 
 // POWER LOSS RECOVERY -----------------------------
@@ -443,10 +433,8 @@
   #endif
 
   #if ENABLED(ENDER5)
-    // XXX: set home as 0,0
-    #define USE_XMIN_PLUG
-    // XXX: set home as 0,0
-    #define USE_YMIN_PLUG
+    #define USE_XMAX_PLUG
+    #define USE_YMAX_PLUG
     #define USE_ZMIN_PLUG
   #else
     #define USE_XMIN_PLUG
@@ -455,10 +443,8 @@
   #endif
 
   #if ENABLED(ENDER5)
-    // XXX: set home as 0,0
-    #define X_HOME_DIR -1
-    // XXX: set home as 0,0
-    #define Y_HOME_DIR -1
+    #define X_HOME_DIR 1
+    #define Y_HOME_DIR 1
     #define Z_HOME_DIR -1
   #else
     #define X_HOME_DIR -1
@@ -528,11 +514,9 @@
   #define Z_ENABLE_ON 0
   #define E_ENABLE_ON 0
 
-  // XXX: set home as 0,0
-  #define INVERT_X_DIR false
-  // XXX: set home as 0,0
-  #define INVERT_Y_DIR false
-
+  #define INVERT_X_DIR true
+  #define INVERT_Y_DIR true
+  
   #if ENABLED(ENDER5)
     #define INVERT_Z_DIR true
   #else
@@ -588,3 +572,4 @@
  */
  
 #include "Configuration_backend.h"
+#include "Configuration_custom.h"
