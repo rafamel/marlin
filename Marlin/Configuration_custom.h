@@ -87,6 +87,10 @@
 #define MIN_SOFTWARE_ENDSTOP_X
 #define MIN_SOFTWARE_ENDSTOP_Y
 #define MIN_SOFTWARE_ENDSTOP_Z
+// Modify Screen Delay
+// See: https://marlinfw.org/docs/basics/troubleshooting.html
+// #define CUSTOM_SCREEN_DELAY
+#define SCREEN_DELAY_NS 125
 
 //=================
 // END SETTINGS
@@ -110,4 +114,10 @@
   #define Z_HOME_DIR -1
   #define INVERT_X_DIR false
   #define INVERT_Y_DIR false
+#endif
+
+#if ENABLED(CUSTOM_SCREEN_DELAY)
+  #define ST7920_DELAY_1 DELAY_NS(SCREEN_DELAY_NS)
+  #define ST7920_DELAY_2 DELAY_NS(SCREEN_DELAY_NS)
+  #define ST7920_DELAY_3 DELAY_NS(SCREEN_DELAY_NS)
 #endif
