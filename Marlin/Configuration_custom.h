@@ -16,6 +16,7 @@
 #undef PREHEAT_2_TEMP_HOTEND
 #undef PREHEAT_2_TEMP_BED
 #undef PREHEAT_2_FAN_SPEED
+#undef Z_AFTER_HOMING
 #undef MIN_SOFTWARE_ENDSTOP_X
 #undef MIN_SOFTWARE_ENDSTOP_Y
 #undef MIN_SOFTWARE_ENDSTOP_Z
@@ -78,13 +79,13 @@
 #define PREHEAT_2_FAN_SPEED     0
 
 //=================
-// Safety
+// Extra Settings
 //=================
-// Prevent X negative values.
+// Lower Z by 10mm after homing
+#define Z_AFTER_HOMING 10
+// Prevent axis negative values
 #define MIN_SOFTWARE_ENDSTOP_X
-// Prevent Y negative values.
 #define MIN_SOFTWARE_ENDSTOP_Y
-// Prevent Z negative values.
 #define MIN_SOFTWARE_ENDSTOP_Z
 
 //=================
