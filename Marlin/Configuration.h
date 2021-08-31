@@ -143,8 +143,10 @@
 // Example EStep Values: TH3D Aluminum Extruder - 95 ESteps, TH3D Tough Extruder - 410 ESteps, BMG Extruder - 415 ESteps
 // When installing a Tough Extruder or E3D Titan or Bondtech that is Geared you likely need to enable the REVERSE_E_MOTOR_DIRECTION option
 #define CUSTOM_ESTEPS
-// Creality's Dual Gear Extruder
-#define CUSTOM_ESTEPS_VALUE 102.5
+// Creality's Stock Extruder: 93
+// Creality's Metal Extruder: 97
+// Creality's Dual Drive Extruder: 140
+#define CUSTOM_ESTEPS_VALUE 96
 //#define REVERSE_E_MOTOR_DIRECTION
 
 // FILAMENT SENSOR UNLOAD SETTINGS -----------------
