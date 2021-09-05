@@ -125,7 +125,7 @@
   * If the probe is left of the nozzle the offset on X is NEGATIVE
   * If the probe is in front of the nozzle the offset on Y is NEGATIVE
   */
-  #define NOZZLE_TO_PROBE_OFFSET { -30, 0, -0.600 }
+  #define NOZZLE_TO_PROBE_OFFSET { -43.5, 1.25, 0 }
 #endif
 
 
@@ -167,7 +167,7 @@
 // If you are using a known hotend thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_HOTEND_THERMISTOR_VALUE
 #define KNOWN_HOTEND_THERMISTOR
 // MK8: 1
-// E3D v6: 5
+// E3D V6: 5
 #define KNOWN_HOTEND_THERMISTOR_VALUE 1
 
 // If you have a hotend and thermistor capable of over 290C you can set the max temp value below.
