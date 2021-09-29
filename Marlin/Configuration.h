@@ -168,7 +168,7 @@
 #define KNOWN_HOTEND_THERMISTOR
 // MK8: 1
 // E3D V6: 5
-#define KNOWN_HOTEND_THERMISTOR_VALUE 1
+#define KNOWN_HOTEND_THERMISTOR_VALUE 5
 
 // If you have a hotend and thermistor capable of over 290C you can set the max temp value below.
 // Setting this higher than 290C on a stock or traditional thermistor will damage it. Refer to your thermistor documentation to see what max temp is.
