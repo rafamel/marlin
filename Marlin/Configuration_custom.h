@@ -43,7 +43,7 @@
 #define FLIP_ORIGIN
 #define X_BED_SIZE 225
 #define Y_BED_SIZE 215
-#define Z_MAX_POS 240
+#define Z_MAX_POS 250
 
 //=================
 // Filament Runout
