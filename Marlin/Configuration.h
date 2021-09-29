@@ -142,10 +142,10 @@
 // If you need to reverse the e motor direction also enabled the REVERSE_E_MOTOR_DIRECTION option.
 // Example EStep Values: TH3D Aluminum Extruder - 95 ESteps, TH3D Tough Extruder - 410 ESteps, BMG Extruder - 415 ESteps
 // When installing a Tough Extruder or E3D Titan or Bondtech that is Geared you likely need to enable the REVERSE_E_MOTOR_DIRECTION option
-#define CUSTOM_ESTEPS
 // Creality's Stock Extruder: 93
 // Creality's Metal Extruder: 97
 // Creality's Dual Drive Extruder: 140
+#define CUSTOM_ESTEPS
 #define CUSTOM_ESTEPS_VALUE 96
 //#define REVERSE_E_MOTOR_DIRECTION
 
@@ -165,9 +165,9 @@
 //#define TH3D_HOTEND_THERMISTOR
 
 // If you are using a known hotend thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_HOTEND_THERMISTOR_VALUE
-#define KNOWN_HOTEND_THERMISTOR
 // MK8: 1
 // E3D V6: 5
+#define KNOWN_HOTEND_THERMISTOR
 #define KNOWN_HOTEND_THERMISTOR_VALUE 5
 
 // If you have a hotend and thermistor capable of over 290C you can set the max temp value below.
