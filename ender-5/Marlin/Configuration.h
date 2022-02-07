@@ -72,19 +72,19 @@
 #define SPACE_SAVER
 
 // Enable full host support
-#define FULL_HOST_SUPPORT
+//#define FULL_HOST_SUPPORT
 
 // Apply on fans that whine under 100% speed
-#define FAN_FIX
+//#define FAN_FIX
 
 // Use Controller Fan
-#define USE_CONTROLLER_FAN
+//#define USE_CONTROLLER_FAN
 
 // Use Probe
-#define USE_ANY_PROBE
+//#define USE_ANY_PROBE
 
 // Apply changes for static beds
-#define BED_STATIC
+//#define BED_STATIC
 
 // @section info
 
@@ -123,6 +123,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
+/** Alter, Motherboard */
 #define SERIAL_PORT 0
 
 /**
@@ -136,7 +137,8 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000
+/** Alter, Motherboard */
+#define BAUDRATE 115200
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
 /**
@@ -160,11 +162,13 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  /** Alter, Motherboard */
+  #define MOTHERBOARD BOARD_MELZI_CREALITY
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-//#define CUSTOM_MACHINE_NAME "3D Printer"
+/** Alter, Custom Value */
+#define CUSTOM_MACHINE_NAME "Ender 5"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -481,7 +485,8 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 1
+/** Alter, Printer Setup, ATC Semitec 104GT-2 104NT-4-R025H42G */
+#define TEMP_SENSOR_0 5
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -489,7 +494,8 @@
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 0
+/** Alter, Printer Setup, Ender 5 Bed Stock Thermistor */
+#define TEMP_SENSOR_BED 1
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 #define TEMP_SENSOR_COOLER 0
@@ -557,7 +563,8 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 275
+/** Alter, Printer Setup */
+#define HEATER_0_MAXTEMP 260
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -565,7 +572,8 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      150
+/** Alter, Printer Setup */
+#define BED_MAXTEMP      120
 #define CHAMBER_MAXTEMP  60
 
 /**
@@ -602,9 +610,12 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  22.20
-    #define DEFAULT_Ki   1.08
-    #define DEFAULT_Kd 114.00
+    /** Alter, Printer Setup */
+    #define DEFAULT_Kp  22.78
+    /** Alter, Printer Setup */
+    #define DEFAULT_Ki   1.63
+    /** Alter, Printer Setup */
+    #define DEFAULT_Kd  79.72
   #endif
 #endif // PIDTEMP
 
@@ -768,8 +779,11 @@
 // Specify here all the endstop connectors that are connected to any endstop or probe.
 // Almost all printers will be using one per axis. Probes will use one or more of the
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
+/** Alter, Printer Setup */
 #define USE_XMIN_PLUG
+/** Alter, Printer Setup */
 #define USE_YMIN_PLUG
+/** Alter, Printer Setup */
 #define USE_ZMIN_PLUG
 //#define USE_IMIN_PLUG
 //#define USE_JMIN_PLUG
@@ -822,7 +836,8 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+/** Alter, Printer Setup */
+#define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -852,9 +867,12 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE  A4988
-#define Y_DRIVER_TYPE  A4988
-#define Z_DRIVER_TYPE  A4988
+/** Alter, Printer Setup */
+#define X_DRIVER_TYPE A4988
+/** Alter, Printer Setup */
+#define Y_DRIVER_TYPE A4988
+/** Alter, Printer Setup */
+#define Z_DRIVER_TYPE A4988
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
 //#define Z2_DRIVER_TYPE A4988
@@ -863,6 +881,7 @@
 //#define I_DRIVER_TYPE  A4988
 //#define J_DRIVER_TYPE  A4988
 //#define K_DRIVER_TYPE  A4988
+/** Alter, Printer Setup */
 #define E0_DRIVER_TYPE A4988
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
@@ -926,7 +945,8 @@
  * Creality Metal Extruder: 97
  * Creality Dual Drive Extruder: 140
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 500 }
+/** Alter, Printer Setup */
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 800, 96 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -936,9 +956,10 @@
 /**
  * Marlin: { 300, 300, 5, 25 }
  * TH3D: { 200, 200, 15, 50 }
- * BIQU B1 SE Plus: { 150, 150, 5, 65 }
+ * Ender 5: { 500, 500, 5, 25 }
 */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
+/** Alter, Printer Setup */
+#define DEFAULT_MAX_FEEDRATE          { 200, 200, 15, 50 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -954,9 +975,10 @@
 /**
  * Marlin: { 3000, 3000, 100, 10000 }
  * TH3D: { 1000, 1000, 500, 5000 }
- * BIQU B1 SE Plus: { 1000, 1000, 100, 10000 }
+ * Ender 5: { 500, 500, 100, 5000 }
 */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
+/** Alter, Printer Setup */
+#define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 500, 5000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -971,9 +993,12 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+/** Alter, Printer Setup */
+#define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves
+/** Alter, Printer Setup */
+#define DEFAULT_RETRACT_ACCELERATION  500    // E acceleration for retracts
+/** Alter, Printer Setup */
+#define DEFAULT_TRAVEL_ACCELERATION   1000   // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -1014,7 +1039,6 @@
  *   https://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  /** Alter, Improvement */
   #define JUNCTION_DEVIATION_MM 0.08  // (mm) Distance from real junction edge
   #define JD_HANDLE_SMALL_SEGMENTS    // Use curvature estimation instead of just the junction angle
                                       // for small segments (< 1mm) with large junction angles (> 135°).
@@ -1069,7 +1093,6 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-/** Alter, ABL */
 //#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
 
 /**
@@ -1215,7 +1238,7 @@
  * Very Fast: (266*60)
  */
 /** Alter, ABL, BLTouch */
-#define XY_PROBE_FEEDRATE (133*60)
+#define XY_PROBE_FEEDRATE (200*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 /**
@@ -1368,9 +1391,12 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
+/** Alter, Printer Setup */
 #define INVERT_X_DIR false
-#define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+/** Alter, Printer Setup */
+#define INVERT_Y_DIR false
+/** Alter, Printer Setup */
+#define INVERT_Z_DIR true
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
 //#define INVERT_K_DIR false
@@ -1378,7 +1404,8 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+/** Alter, Printer Setup */
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1409,8 +1436,11 @@
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
+/** Alter, Printer Setup */
 #define X_HOME_DIR -1
+/** Alter, Printer Setup */
 #define Y_HOME_DIR -1
+/** Alter, Printer Setup */
 #define Z_HOME_DIR -1
 //#define I_HOME_DIR -1
 //#define J_HOME_DIR -1
@@ -1419,8 +1449,10 @@
 // @section machine
 
 // The size of the printable area
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 200
+/** Alter, Printer Setup */
+#define X_BED_SIZE 225
+/** Alter, Printer Setup */
+#define Y_BED_SIZE 215
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1428,7 +1460,8 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 200
+/** Alter, Printer Setup */
+#define Z_MAX_POS 250
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -1484,12 +1517,14 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  */
-//#define FILAMENT_RUNOUT_SENSOR
+/** Alter, Printer Setup */
+#define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
 
-  #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
+  /** Alter, Printer Setup */
+  #define FIL_RUNOUT_STATE     HIGH       // Pin state indicating that filament is NOT present.
   #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
   //#define WATCH_ALL_RUNOUT_SENSORS      // Execute runout script on any triggering sensor, not only for the active extruder.
@@ -1536,7 +1571,8 @@
   // After a runout is detected, continue printing this length of filament
   // before executing the runout script. Useful for a sensor at the end of
   // a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead.
-  //#define FILAMENT_RUNOUT_DISTANCE_MM 25
+  /** Alter, Printer Setup */
+  #define FILAMENT_RUNOUT_DISTANCE_MM 40
 
   #ifdef FILAMENT_RUNOUT_DISTANCE_MM
     // Enable this option to use an encoder disc that toggles the runout pin
@@ -1663,7 +1699,7 @@
 
   // Set the number of grid points per dimension.
   /** Alter, ABL */
-  #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 5
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -1827,7 +1863,8 @@
  * Fast: { (50*60), (50*60), (8*60) }
  * Very Fast: { (50*60), (50*60), (15*60) }
  */
-#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (4*60) }
+/** Alter, Printer Setup */
+#define HOMING_FEEDRATE_MM_M { (20*60), (20*60), (4*60) }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
@@ -1976,7 +2013,8 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
+  /** Alter, Printer Setup */
+  #define NOZZLE_PARK_POINT { X_MAX_POS, Y_MAX_POS, 50 }
   //#define NOZZLE_PARK_X_ONLY          // X move only is required to park
   //#define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
   #define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance
@@ -2190,7 +2228,8 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-//#define SDSUPPORT
+/** Alter, Printer Setup */
+#define SDSUPPORT
 
 /**
  * SD CARD: ENABLE CRC
@@ -2273,6 +2312,7 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
+/** Alter, Printer Setup */
 //#define SPEAKER
 
 //
@@ -2548,7 +2588,8 @@
 // This is RAMPS-compatible using a single 10-pin connector.
 // (For CR-10 owners who want to replace the Melzi Creality board but retain the display)
 //
-//#define CR10_STOCKDISPLAY
+/** Alter, Printer Setup */
+#define CR10_STOCKDISPLAY
 
 //
 // Ender-2 OEM display, a variant of the MKS_MINI_12864
@@ -3019,3 +3060,23 @@
 
 // Edit servo angles with M281 and save to EEPROM with M500
 //#define EDITABLE_SERVO_ANGLES
+
+// @section fixes
+
+// Motherboard Pins
+#define SERVO0_PIN 27
+#define FIL_RUNOUT_PIN 29
+
+// Flip Origin
+#undef USE_XMIN_PLUG
+#undef USE_YMIN_PLUG
+#undef INVERT_X_DIR
+#undef INVERT_Y_DIR
+#undef X_HOME_DIR
+#undef Y_HOME_DIR
+#define USE_XMAX_PLUG
+#define USE_YMAX_PLUG
+#define INVERT_X_DIR true
+#define INVERT_Y_DIR true
+#define X_HOME_DIR 1
+#define Y_HOME_DIR 1
