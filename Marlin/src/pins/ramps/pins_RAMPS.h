@@ -220,11 +220,7 @@
 #elif DISABLED(IS_RAMPS_SF)                       // Not Spindle, Fan (i.e., "EFBF" or "EFBE")
   #define HEATER_BED_PIN            RAMPS_D8_PIN
   #if HOTENDS == 1
-    #if ENABLED(E1_AS_FAN)
-      #define FAN1_PIN              MOSFET_D_PIN
-    #else
-      #define FAN1_PIN              -1
-    #endif
+    #define FAN1_PIN                MOSFET_D_PIN
   #else
     #define HEATER_1_PIN            MOSFET_D_PIN
   #endif
@@ -563,7 +559,7 @@
       //#define SHIFT_EN_PIN         EXP1_08_PIN
     #endif
 
-    #endif
+  #endif
 
   #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
     #define BTN_ENC_EN               LCD_PINS_D7  // Detect the presence of the encoder
@@ -702,28 +698,26 @@
             #define RGB_LED_B_PIN    EXP1_03_PIN
           #endif
         #elif ENABLED(FYSETC_MINI_12864_2_1)
-          #define NEOPIXEL_PIN                EXP1_05_PIN
+          #define NEOPIXEL_PIN       EXP1_05_PIN
         #endif
 
       #endif
 
     #elif ENABLED(MINIPANEL)
 
-      #if DISABLED(CR20)
-        #define BEEPER_PIN                      42
-        // not connected to a pin
-        #define LCD_BACKLIGHT_PIN               65  // backlight LED on A11/D65
+      #define BEEPER_PIN                      42
+      // not connected to a pin
+      #define LCD_BACKLIGHT_PIN               65  // backlight LED on A11/D65
 
-        #define DOGLCD_A0                       44
-        #define DOGLCD_CS                       66
+      #define DOGLCD_A0                       44
+      #define DOGLCD_CS                       66
 
-        #define BTN_EN1                         40
-        #define BTN_EN2                         63
-        #define BTN_ENC                         59
+      #define BTN_EN1                         40
+      #define BTN_EN2                         63
+      #define BTN_ENC                         59
 
-        #define SD_DETECT_PIN          EXP2_04_PIN
-          #define KILL_PIN                        64
-        #endif
+      #define SD_DETECT_PIN          EXP2_04_PIN
+      #define KILL_PIN                        64
 
     #elif ENABLED(ZONESTAR_LCD)
 

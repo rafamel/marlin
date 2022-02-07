@@ -211,14 +211,14 @@
   #endif
 #else
   #ifndef FAN2_PIN
-    #define FAN2_PIN                       -1  //P2_06  // HE1 for FAN3
+    #define FAN2_PIN                       P2_06  // HE1 for FAN3
   #endif
 #endif
 #ifndef FAN_PIN
   #define FAN_PIN                          P2_04  // FAN1
 #endif
 #ifndef FAN1_PIN
-  #define FAN1_PIN                         -1  //P1_04  // FAN2
+  #define FAN1_PIN                         P1_04  // FAN2
 #endif
 
 //
@@ -247,8 +247,8 @@
 
 /**
  *                _____                                            _____
- * (BEEPER) 1.31 | · · | 1.30 (BTN_ENC)          (MISO)       0.8 | · · | 0.7  (SD_SCK)
- * (LCD_EN) 0.18 | · · | 0.16 (LCD_RS)           (BTN_EN1)   3.25 | · · | 0.28 (SD_CS2)
+ * (BEEPER) 1.31 | · · | 1.30 (BTN_ENC)               (MISO) 0.8  | · · | 0.7  (SD_SCK)
+ * (LCD_EN) 0.18 | · · | 0.16 (LCD_RS)             (BTN_EN1) 3.25 | · · | 0.28 (SD_CS2)
  * (LCD_D4) 0.15 | · · | 0.17 (LCD_D5)             (BTN_EN2) 3.26 | · · | 0.9  (SD_MOSI)
  * (LCD_D6)  1.0 | · · | 1.22 (LCD_D7)           (SD_DETECT) 0.27 | · · | RST
  *           GND | · · | 5V                                   GND | · · | NC

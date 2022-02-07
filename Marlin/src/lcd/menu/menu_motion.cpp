@@ -28,6 +28,8 @@
 
 #if HAS_LCD_MENU
 
+#define LARGE_AREA_TEST ((X_BED_SIZE) >= 1000 || (Y_BED_SIZE) >= 1000 || (Z_MAX_POS) >= 1000)
+
 #include "menu_item.h"
 #include "menu_addon.h"
 
@@ -85,7 +87,7 @@ static void _lcd_move_xyz(PGM_P const name, const AxisEnum axis) {
       MenuEditItemBase::draw_edit_screen(name, ftostr63(imp_pos));
     }
     else
-    MenuEditItemBase::draw_edit_screen(name, ui.manual_move.menu_scale >= 0.1f ? ftostr41sign(pos) : ftostr63(pos));
+      MenuEditItemBase::draw_edit_screen(name, ui.manual_move.menu_scale >= 0.1f ? (LARGE_AREA_TEST ? ftostr51sign(pos) : ftostr41sign(pos)) : ftostr63(pos));
   }
 }
 void lcd_move_x() { _lcd_move_xyz(GET_TEXT(MSG_MOVE_X), X_AXIS); }
@@ -165,31 +167,33 @@ void _menu_move_distance(const AxisEnum axis, const screenFunc_t func, const int
 
   BACK_ITEM(MSG_MOVE_AXIS);
   if (parser.using_inch_units()) {
+    if (LARGE_AREA_TEST) SUBMENU(MSG_MOVE_1IN, []{ _goto_manual_move(IN_TO_MM(1.000f)); });
     SUBMENU(MSG_MOVE_01IN,   []{ _goto_manual_move(IN_TO_MM(0.100f)); });
     SUBMENU(MSG_MOVE_001IN,  []{ _goto_manual_move(IN_TO_MM(0.010f)); });
     SUBMENU(MSG_MOVE_0001IN, []{ _goto_manual_move(IN_TO_MM(0.001f)); });
   }
   else {
-  SUBMENU(MSG_MOVE_10MM, []{ _goto_manual_move(10);    });
-  SUBMENU(MSG_MOVE_1MM,  []{ _goto_manual_move( 1);    });
-  SUBMENU(MSG_MOVE_01MM, []{ _goto_manual_move( 0.1f); });
+    if (LARGE_AREA_TEST) SUBMENU(MSG_MOVE_100MM, []{ _goto_manual_move(100); });
+    SUBMENU(MSG_MOVE_10MM, []{ _goto_manual_move(10);    });
+    SUBMENU(MSG_MOVE_1MM,  []{ _goto_manual_move( 1);    });
+    SUBMENU(MSG_MOVE_01MM, []{ _goto_manual_move( 0.1f); });
     if (axis == Z_AXIS && (FINE_MANUAL_MOVE) > 0.0f && (FINE_MANUAL_MOVE) < 0.1f) {
-    // Determine digits needed right of decimal
+      // Determine digits needed right of decimal
       constexpr uint8_t digs = !UNEAR_ZERO((FINE_MANUAL_MOVE) * 1000 - int((FINE_MANUAL_MOVE) * 1000)) ? 4 :
                                !UNEAR_ZERO((FINE_MANUAL_MOVE) *  100 - int((FINE_MANUAL_MOVE) *  100)) ? 3 : 2;
       PGM_P const label = GET_TEXT(MSG_MOVE_N_MM);
-    char tmp[strlen_P(label) + 10 + 1], numstr[10];
+      char tmp[strlen_P(label) + 10 + 1], numstr[10];
       sprintf_P(tmp, label, dtostrf(FINE_MANUAL_MOVE, 1, digs, numstr));
 
-    #if DISABLED(HAS_GRAPHICAL_TFT)
+      #if DISABLED(HAS_GRAPHICAL_TFT)
         SUBMENU_P(NUL_STR, []{ _goto_manual_move(float(FINE_MANUAL_MOVE)); });
-      MENU_ITEM_ADDON_START(0 + ENABLED(HAS_MARLINUI_HD44780));
-      lcd_put_u8str(tmp);
-      MENU_ITEM_ADDON_END();
-    #else
+        MENU_ITEM_ADDON_START(0 + ENABLED(HAS_MARLINUI_HD44780));
+        lcd_put_u8str(tmp);
+        MENU_ITEM_ADDON_END();
+      #else
         SUBMENU_P(tmp, []{ _goto_manual_move(float(FINE_MANUAL_MOVE)); });
-    #endif
-  }
+      #endif
+    }
   }
   END_MENU();
 }
@@ -231,7 +235,7 @@ void menu_move() {
     if (TERN1(DELTA, current_position.z <= delta_clip_start_height)) {
       SUBMENU(MSG_MOVE_X, []{ _menu_move_distance(X_AXIS, lcd_move_x); });
       #if HAS_Y_AXIS
-      SUBMENU(MSG_MOVE_Y, []{ _menu_move_distance(Y_AXIS, lcd_move_y); });
+        SUBMENU(MSG_MOVE_Y, []{ _menu_move_distance(Y_AXIS, lcd_move_y); });
       #endif
     }
     #if ENABLED(DELTA)
@@ -240,7 +244,7 @@ void menu_move() {
     #endif
 
     #if HAS_Z_AXIS
-    SUBMENU(MSG_MOVE_Z, []{ _menu_move_distance(Z_AXIS, lcd_move_z); });
+      SUBMENU(MSG_MOVE_Z, []{ _menu_move_distance(Z_AXIS, lcd_move_z); });
     #endif
     #if LINEAR_AXES >= 4
       SUBMENU(MSG_MOVE_I, []{ _menu_move_distance(I_AXIS, lcd_move_i); });
@@ -348,11 +352,11 @@ void menu_motion() {
   #if ENABLED(INDIVIDUAL_AXIS_HOMING_MENU)
     GCODES_ITEM(MSG_AUTO_HOME_X, PSTR("G28X"));
     #if HAS_Y_AXIS
-    GCODES_ITEM(MSG_AUTO_HOME_Y, PSTR("G28Y"));
+      GCODES_ITEM(MSG_AUTO_HOME_Y, PSTR("G28Y"));
     #endif
     #if HAS_Z_AXIS
-    GCODES_ITEM(MSG_AUTO_HOME_Z, PSTR("G28Z"));
-  #endif
+      GCODES_ITEM(MSG_AUTO_HOME_Z, PSTR("G28Z"));
+    #endif
     #if LINEAR_AXES >= 4
       GCODES_ITEM(MSG_AUTO_HOME_I, PSTR("G28" I_STR));
     #endif
@@ -403,11 +407,10 @@ void menu_motion() {
       GCODES_ITEM(MSG_LEVEL_BED, PSTR("G29N"));
     #endif
 
-	//Disabled by TH3D
-    //if (all_axes_homed() && leveling_is_valid()) {
-      //bool show_state = planner.leveling_active;
-      //EDIT_ITEM(bool, MSG_BED_LEVELING, &show_state, _lcd_toggle_bed_leveling);
-    //}
+    if (all_axes_homed() && leveling_is_valid()) {
+      bool show_state = planner.leveling_active;
+      EDIT_ITEM(bool, MSG_BED_LEVELING, &show_state, _lcd_toggle_bed_leveling);
+    }
 
     #if ENABLED(ENABLE_LEVELING_FADE_HEIGHT)
       editable.decimal = planner.z_fade_height;

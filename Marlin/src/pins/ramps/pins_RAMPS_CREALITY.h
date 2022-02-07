@@ -28,32 +28,6 @@
 #define BOARD_INFO_NAME "Creality3D RAMPS"
 
 //
-// Pins for Ender 5 Plus - Uses Physical XY MIN headers for XY MAX Homing
-//
-
-#if ENABLED(ENDER5_PLUS)
-  #define X_MIN_PIN                          -1
-  #define X_MAX_PIN                          3
-  #define Y_MIN_PIN                          -1
-  #define Y_MAX_PIN                          14
-#endif
-
-#if ENABLED(CR20)
-  #define BEEPER_PIN 37
-  #define LCD_BACKLIGHT_PIN -1
-          
-  #define DOGLCD_A0  27
-  #define DOGLCD_CS  25
-                  
-  #define BTN_EN1 31
-  #define BTN_EN2 33
-  #define BTN_ENC 35  
-          
-  #define SD_DETECT_PIN -1
-  #define KILL_PIN 64
-#endif
-
-//
 // Heaters / Fans
 //
 
