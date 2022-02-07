@@ -81,24 +81,19 @@
 // Heaters / Fans
 //
 #define HEATER_0_PIN                        PD12  // HOT-END
-#define HEATER_1_PIN                        -1
-#define HEATER_2_PIN                        -1
-
 #define HEATER_BED_PIN                      PG11  // HOT-BED
-#define HEATER_BED2_PIN                     -1    // BED2
-#define HEATER_BED3_PIN                     -1    // BED3
 
 #ifndef FAN_PIN
   #define FAN_PIN                           PG14  // MAIN BOARD FAN
 #endif
 
-#define FAN_SOFT_PWM
+#define FAN_SOFT_PWM_REQUIRED
 
 //
 // Temperature Sensors
 //
-#define TEMP_BED_PIN                        PA0   // Analog Input
 #define TEMP_0_PIN                          PA1   // Analog Input
+#define TEMP_BED_PIN                        PA0   // Analog Input
 
 //
 // LCD Pins
