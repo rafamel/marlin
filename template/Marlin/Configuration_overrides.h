@@ -1,0 +1,42 @@
+#pragma once
+
+#undef WEBSITE_URL
+#undef BUFSIZE
+#undef TX_BUFFER_SIZE
+#undef SLOWDOWN_DIVISOR
+#undef BLOCK_BUFFER_SIZE
+#undef SDCARD_CONNECTION
+#undef CHOPPER_TIMING
+#undef E0_AUTO_FAN_PIN
+#undef CONTROLLER_FAN_PIN
+#undef X_CURRENT
+#undef Y_CURRENT
+#undef Z_CURRENT
+#undef E0_CURRENT
+#undef FILAMENT_CHANGE_UNLOAD_LENGTH
+#undef FILAMENT_CHANGE_FAST_LOAD_LENGTH
+
+/** Bootscreen */
+#define WEBSITE_URL SHORT_BUILD_VERSION
+
+/** Motherboard */
+#define BUFSIZE 4
+#define TX_BUFFER_SIZE 0
+#define SLOWDOWN_DIVISOR 2
+#define BLOCK_BUFFER_SIZE 8
+#define SDCARD_CONNECTION LCD
+#define CHOPPER_TIMING CHOPPER_DEFAULT_24V
+
+/** Board Pins */
+#define E0_AUTO_FAN_PIN -1
+#define CONTROLLER_FAN_PIN -1
+
+/** Axis Drivers */
+#define X_CURRENT 1000
+#define Y_CURRENT 1000
+#define Z_CURRENT 1000
+#define E0_CURRENT 1000
+
+/** Filament Change */
+#define FILAMENT_CHANGE_UNLOAD_LENGTH 100
+#define FILAMENT_CHANGE_FAST_LOAD_LENGTH 0
