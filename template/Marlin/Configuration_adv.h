@@ -1624,7 +1624,11 @@
    *
    * [1] On AVR an interrupt-capable pin is best for UHS3 compatibility.
    */
-  //#define USB_FLASH_DRIVE_SUPPORT
+  /** Alter, Settings */
+  #if ENABLED(ENABLE_OTG_USB_SUPPORT)
+    /** Alter, OTG USB */
+    #define USB_FLASH_DRIVE_SUPPORT
+  #endif
   #if ENABLED(USB_FLASH_DRIVE_SUPPORT)
     /**
      * USB Host Shield Library
@@ -1642,7 +1646,8 @@
     /**
      * Native USB Host supported by some boards (USB OTG)
      */
-    //#define USE_OTG_USB_HOST
+    /** Alter, OTG USB */
+    #define USE_OTG_USB_HOST
 
     #if DISABLED(USE_OTG_USB_HOST)
       #define USB_CS_PIN    SDSS

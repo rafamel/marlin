@@ -86,6 +86,9 @@
 // Apply changes for static beds
 #define BED_STATIC
 
+// Enable USB Storage
+#define ENABLE_OTG_USB_SUPPORT
+
 // @section info
 
 // Author info of this build printed to the host during boot and M115
