@@ -852,7 +852,14 @@
 #define HOMING_BUMP_MM      { 5, 5, 2 }       // (mm) Backoff from endstops after first bump
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 
-//#define HOMING_BACKOFF_POST_MM { 2, 2, 2 }  // (mm) Backoff from endstops after homing
+/** Alter, Settings */
+#if DISABLED(USE_ANY_PROBE)
+  /** Alter, Improvement */
+  #define HOMING_BACKOFF_POST_MM { 10, 10, 10 } // (mm) Backoff from endstops after homing
+#else
+  /** Alter, Improvement */
+  #define HOMING_BACKOFF_POST_MM { 0, 0, 10 - (Z_CLEARANCE_DEPLOY_PROBE - DEFINE_Z_PROBE_OFFSET) }
+#endif
 
 /** Alter, Improvement */
 #define QUICK_HOME                            // If G28 contains XY do a diagonal move first
