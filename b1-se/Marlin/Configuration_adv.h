@@ -4068,10 +4068,8 @@
   #define HOST_PAUSE_M76
   /** Alter, Host Support */
   #define HOST_PROMPT_SUPPORT
-  /** Alter, Host Support */
-  #define HOST_START_MENU_ITEM      // Add a menu item that tells the host to start
-  /** Alter, Host Support */
-  #define HOST_SHUTDOWN_MENU_ITEM   // Add a menu item that tells the host to shut down
+  //#define HOST_START_MENU_ITEM      // Add a menu item that tells the host to start
+  //#define HOST_SHUTDOWN_MENU_ITEM   // Add a menu item that tells the host to shut down
 #endif
 
 /**
