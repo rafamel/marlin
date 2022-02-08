@@ -170,7 +170,7 @@
 
 // Name displayed in the LCD "Ready" message and Info menu
 /** Alter, Custom Value */
-#define CUSTOM_MACHINE_NAME "BIQU B1 SE PLUS"
+#define CUSTOM_MACHINE_NAME "B1 SE PLUS"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
