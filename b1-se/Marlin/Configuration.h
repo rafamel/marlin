@@ -596,7 +596,7 @@
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
 /** Alter, Printer Setup */
-#define BED_MAXTEMP      140
+#define BED_MAXTEMP      120
 #define CHAMBER_MAXTEMP  60
 
 /**
@@ -1518,7 +1518,7 @@
 /** Alter, Printer Setup */
 #define Y_MAX_POS Y_BED_SIZE + 5
 /** Alter, Printer Setup */
-#define Z_MAX_POS 320
+#define Z_MAX_POS 310
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
