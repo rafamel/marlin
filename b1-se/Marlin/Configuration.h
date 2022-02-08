@@ -1094,7 +1094,11 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-//#define S_CURVE_ACCELERATION
+/** Alter, Settings */
+#if DISABLED(SPACE_SAVER)
+  /** Alter, Improvement */
+  #define S_CURVE_ACCELERATION
+#endif
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1830,7 +1834,11 @@
 #if ENABLED(LCD_BED_LEVELING)
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
   #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
-  //#define MESH_EDIT_MENU        // Add a menu to edit mesh points
+  /** Alter, Settings */
+  #if DISABLED(SPACE_SAVER)
+    /** Alter, ABL/MBL */
+    #define MESH_EDIT_MENU        // Add a menu to edit mesh points
+  #endif
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
@@ -2363,7 +2371,11 @@
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-//#define INDIVIDUAL_AXIS_HOMING_MENU
+/** Alter, Settings */
+#if DISABLED(SPACE_SAVER)
+  /** Alter, Improvement */
+  #define INDIVIDUAL_AXIS_HOMING_MENU
+#endif
 //#define INDIVIDUAL_AXIS_HOMING_SUBMENU
 
 //
