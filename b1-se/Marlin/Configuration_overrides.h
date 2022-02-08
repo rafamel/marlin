@@ -35,7 +35,7 @@
 #define X_CURRENT 800
 #define Y_CURRENT 800
 #define Z_CURRENT 800
-#define E0_CURRENT 800
+#define E0_CURRENT 950
 
 /** Filament Change */
 #define FILAMENT_CHANGE_UNLOAD_LENGTH 75
