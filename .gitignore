@@ -1,5 +1,4 @@
-# OS generated files #
-######################
+.vscode
 ._*
 *.pem
 .DS_Store
