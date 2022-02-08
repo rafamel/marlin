@@ -3829,7 +3829,8 @@
 #endif
 
 #if ENABLED(EXTENDED_CAPABILITIES_REPORT)
-  //#define M115_GEOMETRY_REPORT
+  /** Alter, Improvement */
+  #define M115_GEOMETRY_REPORT
 #endif
 
 /**
