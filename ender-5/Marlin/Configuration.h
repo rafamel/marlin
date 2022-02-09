@@ -69,22 +69,22 @@
 // @section settings
 
 // Apply space saver disables
-#define SPACE_SAVER
+#define ENABLE_SPACE_SAVER
 
 // Enable full host support
-//#define FULL_HOST_SUPPORT
+//#define ENABLE_FULL_HOST_SUPPORT
 
 // Apply on fans that whine under 100% speed
-//#define FAN_FIX
+//#define ENABLE_ENABLE_FAN_FIX
 
 // Use Controller Fan
-//#define USE_CONTROLLER_FAN
+//#define ENABLE_CONTROLLER_FAN
 
 // Use Probe
-//#define USE_ANY_PROBE
+//#define ENABLE_PROBE
 
 // Apply changes for static beds
-//#define BED_STATIC
+//#define ENABLE_BED_STATIC
 
 // Enable USB Storage
 //#define ENABLE_OTG_USB_SUPPORT
@@ -1090,7 +1090,7 @@
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
 /** Alter, Settings */
-#if DISABLED(SPACE_SAVER)
+#if DISABLED(ENABLE_SPACE_SAVER)
   /** Alter, Improvement */
   #define S_CURVE_ACCELERATION
 #endif
@@ -1114,7 +1114,7 @@
 
 // Force the use of the probe for Z-axis homing
 /** Alter, Settings */
-#if ENABLED(USE_ANY_PROBE)
+#if ENABLED(ENABLE_PROBE)
   /** Alter, ABL */
   #define USE_PROBE_FOR_Z_HOMING
 #endif
@@ -1377,7 +1377,7 @@
 
 // Enable the M48 repeatability test to test probe accuracy
 /** Alter, Settings */
-#if DISABLED(SPACE_SAVER)
+#if DISABLED(ENABLE_SPACE_SAVER)
   /** Alter, ABL */
   #define Z_MIN_PROBE_REPEATABILITY_TEST
 #endif
@@ -1675,13 +1675,13 @@
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
 /** Alter, Settings */
-#if ENABLED(USE_ANY_PROBE)
+#if ENABLED(ENABLE_PROBE)
   /** Alter, ABL */
   #define AUTO_BED_LEVELING_BILINEAR
 #endif
 //#define AUTO_BED_LEVELING_UBL
 /** Alter, Settings */
-#if DISABLED(USE_ANY_PROBE)
+#if DISABLED(ENABLE_PROBE)
   /** Alter, MBL */
   #define MESH_BED_LEVELING
 #endif
@@ -1817,7 +1817,7 @@
  * Include a guided procedure if manual probing is enabled.
  */
 /** Alter, Settings */
-#if DISABLED(SPACE_SAVER) || ENABLED(MESH_BED_LEVELING)
+#if DISABLED(ENABLE_SPACE_SAVER) || ENABLED(MESH_BED_LEVELING)
   /** Alter, ABL/MBL */
   #define LCD_BED_LEVELING
 #endif
@@ -1826,7 +1826,7 @@
   #define MESH_EDIT_Z_STEP  0.025 // (mm) Step size while manually probing Z axis.
   #define LCD_PROBE_Z_RANGE 4     // (mm) Z Range centered on Z_MIN_POS for LCD Z adjustment
   /** Alter, Settings */
-  #if DISABLED(SPACE_SAVER)
+  #if DISABLED(ENABLE_SPACE_SAVER)
     /** Alter, ABL/MBL */
     #define MESH_EDIT_MENU        // Add a menu to edit mesh points
   #endif
@@ -1834,7 +1834,7 @@
 
 // Add a menu item to move between bed corners for manual bed adjustment
 /** Alter, Settings */
-#if DISABLED(BED_STATIC)
+#if DISABLED(ENABLE_BED_STATIC)
   /** Alter, Bed Leveling */
   #define LEVEL_BED_CORNERS
 #endif
@@ -1900,7 +1900,7 @@
  * - If stepper drivers sleep, XY homing may be required again before Z homing.
  */
 /** Alter, Settings */
-#if ENABLED(USE_ANY_PROBE)
+#if ENABLED(ENABLE_PROBE)
   /** Alter, ABL */
   #define Z_SAFE_HOMING
 #endif
@@ -2016,7 +2016,7 @@
 #define HOST_KEEPALIVE_FEATURE        // Disable this if your host doesn't like keepalive messages
 #define DEFAULT_KEEPALIVE_INTERVAL 2  // Number of seconds between "busy" messages. Set with M113.
 /** Alter, Settings */
-#if ENABLED(FULL_HOST_SUPPORT)
+#if ENABLED(ENABLE_FULL_HOST_SUPPORT)
   #define BUSY_WHILE_HEATING          // Some hosts require "busy" messages even during heating
 #endif
 
@@ -2303,7 +2303,7 @@
  */
 //#define NO_LCD_MENUS
 /** Alter, Settings */
-#if ENABLED(SPACE_SAVER)
+#if ENABLED(ENABLE_SPACE_SAVER)
   /** Alter, Space Saver */
   #define SLIM_LCD_MENUS
 #endif
@@ -2361,7 +2361,7 @@
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
 /** Alter, Settings */
-#if DISABLED(SPACE_SAVER)
+#if DISABLED(ENABLE_SPACE_SAVER)
   /** Alter, Improvement */
   #define INDIVIDUAL_AXIS_HOMING_MENU
 #endif
@@ -3043,7 +3043,7 @@
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
 /** Alter, Settings */
-#if ENABLED(FAN_FIX)
+#if ENABLED(ENABLE_FAN_FIX)
   /** Alter, Fan Fix */
   #define FAN_SOFT_PWM
 #endif
@@ -3054,7 +3054,7 @@
 // at zero value, there are 128 effective control positions.
 // :[0,1,2,3,4,5,6,7]
 /** Alter, Settings */
-#if ENABLED(FAN_FIX)
+#if ENABLED(ENABLE_FAN_FIX)
   /** Alter, Fan Fix */
   #define SOFT_PWM_SCALE 1
 #else
@@ -3167,7 +3167,7 @@
  * Set to 0 to turn off servo support.
  */
 /** Alter, Settings */
-#if ENABLED(USE_ANY_PROBE)
+#if ENABLED(ENABLE_PROBE)
   /** Alter, ABL, BLTouch */
   #define NUM_SERVOS 1 // Note: Servo index starts with 0 for M280-M282 commands
 #endif

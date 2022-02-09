@@ -424,7 +424,7 @@
  * Disable by sending M104/M109 with no F parameter (or F0 with AUTOTEMP_PROPORTIONAL).
  */
 /** Alter, Settings */
-#if DISABLED(SPACE_SAVER)
+#if DISABLED(ENABLE_SPACE_SAVER)
   /** Alter, Improvement */
   #define AUTOTEMP
 #endif
@@ -512,7 +512,10 @@
  * The fan turns on automatically whenever any driver is enabled and turns
  * off (or reduces to idle speed) shortly after drivers are turned off.
  */
-//#define USE_CONTROLLER_FAN
+/** Alter, Settings */
+#if ENABLED(ENABLE_CONTROLLER_FAN)
+  #define USE_CONTROLLER_FAN
+#endif
 #if ENABLED(USE_CONTROLLER_FAN)
   //#define CONTROLLER_FAN_PIN -1           // Set a custom pin for the controller fan
   //#define CONTROLLER_FAN_USE_Z_ONLY       // With this option only the Z axis is considered
@@ -853,7 +856,7 @@
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 
 /** Alter, Settings */
-#if DISABLED(USE_ANY_PROBE)
+#if DISABLED(ENABLE_PROBE)
   /** Alter, Improvement */
   #define HOMING_BACKOFF_POST_MM { 10, 10, 10 } // (mm) Backoff from endstops after homing
 #else
@@ -1198,7 +1201,7 @@
  * lowest stepping frequencies.
  */
 /** Alter, Settings */
-#if DISABLED(SPACE_SAVER)
+#if DISABLED(ENABLE_SPACE_SAVER)
   /** Alter, Improvement */
   #define ADAPTIVE_STEP_SMOOTHING
 #endif
@@ -1337,7 +1340,7 @@
 
   // Include a page of printer information in the LCD Main Menu
   /** Alter, Settings */
-  #if DISABLED(SPACE_SAVER)
+  #if DISABLED(ENABLE_SPACE_SAVER)
     /** Alter, Improvement */
     #define LCD_INFO_MENU
   #endif
@@ -1382,7 +1385,7 @@
 
 #if ANY(HAS_DISPLAY, DWIN_CREALITY_LCD_ENHANCED, DWIN_CREALITY_LCD_JYERSUI)
   /** Alter, Settings */
-  #if DISABLED(SPACE_SAVER) && ENABLED(SPEAKER)
+  #if DISABLED(ENABLE_SPACE_SAVER) && ENABLED(SPEAKER)
     /** Alter, Improvement */
     #define SOUND_MENU_ITEM   // Add a mute option to the LCD menu
   #endif
@@ -1400,7 +1403,7 @@
       #define BOOT_MARLIN_LOGO_SMALL     // Show a smaller Marlin logo on the Boot Screen (saving lots of flash)
     #endif
     /** Alter, Settings */
-    #if ENABLED(SPACE_SAVER)
+    #if ENABLED(ENABLE_SPACE_SAVER)
       #undef BOOT_MARLIN_LOGO_SMALL
       #define BOOT_MARLIN_LOGO_SMALL
     #endif
@@ -1412,14 +1415,14 @@
 
   // On the Info Screen, display XY with one decimal place when possible
   /** Alter, Settings */
-  #if DISABLED(SPACE_SAVER)
+  #if DISABLED(ENABLE_SPACE_SAVER)
     /** Alter, Improvement */
     #define LCD_DECIMAL_SMALL_XY
   #endif
 
   // Add an 'M73' G-code to set the current percentage
   /** Alter, Settings */
-  #if DISABLED(SPACE_SAVER)
+  #if DISABLED(ENABLE_SPACE_SAVER)
     /** Alter, Improvement */
     #define LCD_SET_PROGRESS_MANUALLY
   #endif
@@ -1487,7 +1490,7 @@
   #define SD_MENU_CONFIRM_START             // Confirm the selected SD file before printing
 
   /** Alter, Settings */
-  #if ENABLED(SPACE_SAVER)
+  #if ENABLED(ENABLE_SPACE_SAVER)
     /** Alter, Space Saver */
     #define NO_SD_AUTOSTART                 // Remove auto#.g file support completely to save some Flash, SRAM
   #endif
@@ -1579,7 +1582,7 @@
 
   // This allows hosts to request long names for files and folders with M33
   /** Alter, Settings */
-  #if ENABLED(FULL_HOST_SUPPORT)
+  #if ENABLED(ENABLE_FULL_HOST_SUPPORT)
     /** Alter, Host Support */
     #define LONG_FILENAME_HOST_SUPPORT
   #endif
@@ -2379,7 +2382,7 @@
  * NOTE: Not yet implemented for all platforms.
  */
 /** Alter, Settings */
-#if ENABLED(FULL_HOST_SUPPORT)
+#if ENABLED(ENABLE_FULL_HOST_SUPPORT)
   /** Alter, Host Support */
   #define EMERGENCY_PARSER
 #endif
@@ -2606,7 +2609,7 @@
   //#define HOME_BEFORE_FILAMENT_CHANGE           // If needed, home before parking for filament change
 
   /** Alter, Settings */
-  #if DISABLED(SPACE_SAVER)
+  #if DISABLED(ENABLE_SPACE_SAVER)
     /** Alter, Improvement */
     #define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
   #endif
@@ -3083,7 +3086,7 @@
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
   /** Alter, Settings */
-  #if DISABLED(SPACE_SAVER)
+  #if DISABLED(ENABLE_SPACE_SAVER)
     /** Alter, Improvement */
     #define MONITOR_DRIVER_STATUS
   #endif
@@ -3191,7 +3194,7 @@
    * M122 S0/1 will enable continuous reporting.
    */
   /** Alter, Settings */
-  #if DISABLED(SPACE_SAVER)
+  #if DISABLED(ENABLE_SPACE_SAVER)
     /** Alter, Improvement */
     #define TMC_DEBUG
   #endif
@@ -3823,7 +3826,7 @@
  * Include capabilities in M115 output
  */
 /** Alter, Settings */
-#if DISABLED(SPACE_SAVER)
+#if DISABLED(ENABLE_SPACE_SAVER)
   /** Alter, Improvement */
   #define EXTENDED_CAPABILITIES_REPORT
 #endif
@@ -3844,7 +3847,7 @@
  * Disable all Volumetric extrusion options
  */
 /** Alter, Settings */
-#if ENABLED(SPACE_SAVER)
+#if ENABLED(ENABLE_SPACE_SAVER)
   #define NO_VOLUMETRICS
 #endif
 
@@ -4059,7 +4062,7 @@
  * filament runout and other processes can be managed from the host side.
  */
 /** Alter, Settings */
-#if ENABLED(FULL_HOST_SUPPORT)
+#if ENABLED(ENABLE_FULL_HOST_SUPPORT)
   /** Alter, Host Support */
   #define HOST_ACTION_COMMANDS
 #endif
