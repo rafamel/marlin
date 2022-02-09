@@ -87,7 +87,7 @@
 #define ENABLE_BED_STATIC
 
 // Enable USB Storage
-#define ENABLE_OTG_USB_SUPPORT
+//#define ENABLE_OTG_USB_SUPPORT
 
 // @section info
 
@@ -1273,7 +1273,7 @@
  *     O-- FRONT --+
  */
 /** Alter, ABL */
-#define DEFINE_Z_PROBE_OFFSET -2.95
+#define DEFINE_Z_PROBE_OFFSET -2.925
 /** Alter, ABL */
 #define NOZZLE_TO_PROBE_OFFSET { -43.5, 1.25, DEFINE_Z_PROBE_OFFSET }
 
@@ -2081,7 +2081,7 @@
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
   /** Alter, Printer Setup */
-  #define NOZZLE_PARK_POINT { X_MAX_POS, (Y_MAX_POS - 80), 50 }
+  #define NOZZLE_PARK_POINT { X_MAX_POS, (Y_BED_SIZE / 3) * 2.2, 50 }
   //#define NOZZLE_PARK_X_ONLY          // X move only is required to park
   //#define NOZZLE_PARK_Y_ONLY          // Y move only is required to park
   #define NOZZLE_PARK_Z_RAISE_MIN   2   // (mm) Always raise Z by at least this distance
