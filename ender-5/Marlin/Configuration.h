@@ -2360,11 +2360,7 @@
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-/** Alter, Settings */
-#if DISABLED(ENABLE_SPACE_SAVER)
-  /** Alter, Improvement */
-  #define INDIVIDUAL_AXIS_HOMING_MENU
-#endif
+//#define INDIVIDUAL_AXIS_HOMING_MENU
 //#define INDIVIDUAL_AXIS_HOMING_SUBMENU
 
 //
