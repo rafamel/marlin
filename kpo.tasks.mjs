@@ -1,4 +1,4 @@
-module.exports = ({ exec }) => ({
+export default ({ exec }) => ({
   'build:e5': exec('pio', ['run', '-e', 'melzi_optiboot_optimized'], {
     cwd: 'ender-5'
   }),
