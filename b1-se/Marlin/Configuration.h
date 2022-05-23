@@ -1683,10 +1683,10 @@
 #if ENABLED(ENABLE_PROBE)
   //#define AUTO_BED_LEVELING_3POINT
   //#define AUTO_BED_LEVELING_LINEAR
-  //#define AUTO_BED_LEVELING_BILINEAR
-  //#define AUTO_BED_LEVELING_UBL
   /** Alter, ABL/MBL */
-  #define MESH_BED_LEVELING
+  #define AUTO_BED_LEVELING_BILINEAR
+  //#define AUTO_BED_LEVELING_UBL
+  //#define MESH_BED_LEVELING
 #else
   //#define AUTO_BED_LEVELING_UBL
   /** Alter, MBL */
@@ -1762,7 +1762,7 @@
 
   // Set the number of grid points per dimension.
   /** Alter, ABL */
-  #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 5
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
