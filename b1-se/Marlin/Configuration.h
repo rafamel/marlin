@@ -1520,7 +1520,7 @@
 /** Alter, Printer Setup */
 #define Y_MAX_POS Y_BED_SIZE + 5
 /** Alter, Printer Setup */
-#define Z_MAX_POS 310
+#define Z_MAX_POS 300
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
