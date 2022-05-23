@@ -1147,7 +1147,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-/** Alter, ABL, BLTouch */
+/** Alter, ABL */
 //#define BLTOUCH
 
 /**
@@ -1256,7 +1256,7 @@
  * Fast: (200*60)
  * Very Fast: (266*60)
  */
-/** Alter, ABL, BLTouch */
+/** Alter, ABL */
 #define XY_PROBE_FEEDRATE (133*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
@@ -1266,7 +1266,7 @@
  * Fast: (8*60)
  * Very Fast: (15*60)
  */
-/** Alter, ABL, BLTouch */
+/** Alter, ABL */
 #define Z_PROBE_FEEDRATE_FAST (4*60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
@@ -1335,13 +1335,13 @@
  * Example: `M851 Z-5` with a CLEARANCE of 4  =>  9mm from bed to nozzle.
  *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
-/** Alter, ABL, BLTouch */
-#define Z_CLEARANCE_DEPLOY_PROBE    6 // Z Clearance for Deploy/Stow
+/** Alter, ABL */
+#define Z_CLEARANCE_DEPLOY_PROBE    5 // Z Clearance for Deploy/Stow
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
 //#define Z_AFTER_PROBING           5 // Z position after probing is done
 
-/** Alter, ABL, BLTouch */
+/** Alter, ABL */
 #define Z_PROBE_LOW_POINT          -4 // Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
@@ -1725,13 +1725,14 @@
     // Beyond the probed grid, continue the implied tilt?
     // Default is to maintain the height of the nearest edge.
     /** Alter, ABL */
-    #define EXTRAPOLATE_BEYOND_GRID
+    //#define EXTRAPOLATE_BEYOND_GRID
 
     //
     // Experimental Subdivision of the grid by Catmull-Rom method.
     // Synthesizes intermediate points to produce a more detailed mesh.
     //
-    //#define ABL_BILINEAR_SUBDIVISION
+    /** Alter, ABL */
+    #define ABL_BILINEAR_SUBDIVISION
     #if ENABLED(ABL_BILINEAR_SUBDIVISION)
       // Number of subdivisions between probe points
       #define BILINEAR_SUBDIVISIONS 3
@@ -3123,7 +3124,7 @@
  */
 /** Alter, Settings */
 #if ENABLED(ENABLE_PROBE)
-  /** Alter, ABL, BLTouch */
+  /** Alter, ABL */
   #define NUM_SERVOS 1 // Note: Servo index starts with 0 for M280-M282 commands
 #endif
 

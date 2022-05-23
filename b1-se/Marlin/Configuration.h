@@ -1175,7 +1175,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-/** Alter, ABL, BLTouch */
+/** Alter, ABL */
 #define BLTOUCH
 
 /**
@@ -1276,7 +1276,7 @@
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
 /** Alter, ABL */
-#define PROBING_MARGIN 40
+#define PROBING_MARGIN 20
 
 // X and Y axis travel speed (mm/min) between probes
 /**
@@ -1284,7 +1284,7 @@
  * Fast: (200*60)
  * Very Fast: (266*60)
  */
-/** Alter, ABL, BLTouch */
+/** Alter, ABL */
 #define XY_PROBE_FEEDRATE (200*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
@@ -1294,7 +1294,7 @@
  * Fast: (8*60)
  * Very Fast: (15*60)
  */
-/** Alter, ABL, BLTouch */
+/** Alter, ABL */
 #define Z_PROBE_FEEDRATE_FAST (4*60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
@@ -1363,13 +1363,13 @@
  * Example: `M851 Z-5` with a CLEARANCE of 4  =>  9mm from bed to nozzle.
  *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
-/** Alter, ABL, BLTouch */
-#define Z_CLEARANCE_DEPLOY_PROBE    6 // Z Clearance for Deploy/Stow
+/** Alter, ABL */
+#define Z_CLEARANCE_DEPLOY_PROBE    5 // Z Clearance for Deploy/Stow
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
 //#define Z_AFTER_PROBING           5 // Z position after probing is done
 
-/** Alter, ABL, BLTouch */
+/** Alter, ABL */
 #define Z_PROBE_LOW_POINT          -4 // Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
@@ -1705,10 +1705,13 @@
 /**
  * Auto-leveling needs preheating
  */
-//#define PREHEAT_BEFORE_LEVELING
+/** Alter, ABL/MBL */
+#define PREHEAT_BEFORE_LEVELING
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
-  #define LEVELING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
-  #define LEVELING_BED_TEMP     50
+  /** Alter, ABL/MBL */
+  #define LEVELING_NOZZLE_TEMP 0   // (°C) Only applies to E0 at this time
+  /** Alter, ABL/MBL */
+  #define LEVELING_BED_TEMP     60
 #endif
 
 /**
@@ -1770,13 +1773,14 @@
     // Beyond the probed grid, continue the implied tilt?
     // Default is to maintain the height of the nearest edge.
     /** Alter, ABL */
-    #define EXTRAPOLATE_BEYOND_GRID
+    //#define EXTRAPOLATE_BEYOND_GRID
 
     //
     // Experimental Subdivision of the grid by Catmull-Rom method.
     // Synthesizes intermediate points to produce a more detailed mesh.
     //
-    //#define ABL_BILINEAR_SUBDIVISION
+    /** Alter, ABL */
+    #define ABL_BILINEAR_SUBDIVISION
     #if ENABLED(ABL_BILINEAR_SUBDIVISION)
       // Number of subdivisions between probe points
       #define BILINEAR_SUBDIVISIONS 3
@@ -1813,7 +1817,7 @@
   //===========================================================================
 
   /** Alter, MBL */
-  #define MESH_INSET 40          // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET 20          // Set Mesh bounds as an inset region of the bed
   /** Alter, MBL */
   #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
@@ -3177,7 +3181,7 @@
  */
 /** Alter, Settings */
 #if ENABLED(ENABLE_PROBE)
-  /** Alter, ABL, BLTouch */
+  /** Alter, ABL */
   #define NUM_SERVOS 1 // Note: Servo index starts with 0 for M280-M282 commands
 #endif
 

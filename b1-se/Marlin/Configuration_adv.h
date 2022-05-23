@@ -856,12 +856,12 @@
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 
 /** Alter, Settings */
-#if DISABLED(ENABLE_PROBE)
+#if ENABLED(ENABLE_PROBE)
   /** Alter, Improvement */
-  #define HOMING_BACKOFF_POST_MM { 10, 10, 10 } // (mm) Backoff from endstops after homing
+  #define HOMING_BACKOFF_POST_MM { 10, 10, 10 - Z_CLEARANCE_DEPLOY_PROBE }
 #else
   /** Alter, Improvement */
-  #define HOMING_BACKOFF_POST_MM { 10, 10, 10 - (Z_CLEARANCE_DEPLOY_PROBE - DEFINE_Z_PROBE_OFFSET) }
+  #define HOMING_BACKOFF_POST_MM { 10, 10, 10 } // (mm) Backoff from endstops after homing
 #endif
 
 /** Alter, Improvement */
